@@ -8,7 +8,16 @@
 $roundNumber = $_GET['n'] ?? 1;
 $userGuess = (int)($_POST['user_guess'] ?? 0);
 
-$ResultYear = 1985;
+// 1. On prépare la requête avec un "marqueur" (:id)
+$query = $pdo->prepare("SELECT * FROM rounds WHERE id = :id");
+
+// 2. On exécute en passant la valeur
+$query->execute(['id' => $roundNumber]);
+
+// 3. On récupère les données (sous forme de tableau associatif)
+$roundData = $query->fetch();
+
+$ResultYear = $roundData['true_year'];
 
 $point = 5000 - (250 *abs($userGuess - $ResultYear));
 

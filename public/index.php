@@ -5,6 +5,7 @@
  * 
  */
 session_start();
+require_once '../src/db.php'; //Pour que PDO soit disponible partout (DB.php)
 $page = $_GET['page'] ?? 'home';
 
 // 2. Définition des routes autorisées (Nom dans l'URL => Chemin du fichier)
