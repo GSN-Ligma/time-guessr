@@ -15,3 +15,7 @@
 <p>Pour Jouer : </p>
 <a href="index.php?page=round">Jouer</a>
 
+<br>
+<br>
+<br>
+<a href="index.php?page=game-over">Rénitialiser partie</a>
