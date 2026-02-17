@@ -1,29 +1,32 @@
 <?php
-
-/**
- * home page
- * 
- */
 $roundNumber = $_GET['n'] ?? 1;
-
 
 $query = $pdo->query("SELECT * FROM rounds ORDER BY RAND() LIMIT 1");
 
 // 3. On récupère les données (sous forme de tableau associatif)
 $roundData = $query->fetch();
-echo "Time guessr ! round page";
 
+if ($roundNumber === 1) {
+
+    $_SESSION['totalScore'] = 0;
+    
+    $query = $pdo->query("SELECT id FROM rounds ORDER BY RAND() LIMIT 5");
+    $_SESSION['game_rounds'] = $query->fetchAll(PDO::FETCH_COLUMN);
+}
+
+echo "Time Guesoeur !";
 ?>
+<link rel="stylesheet" href="css/style.css">
 <h1>Round <?= $roundNumber ?> sur 5</h1>
 
 <img src="<?= $roundData['image_path'] ?>" alt="Photo à deviner" style="max-width: 500px;">
 
 <br>
-<p>réponse :</p>
+<p>où et en quelle année et a été prise cette photo ?</p>
+<div id="map"></div>
 <form action="index.php?page=round-results&n=<?= $roundNumber ?>" method="POST">
-    <p>En quelle année et où a été prise cette photo ?</p>
+    
     <input type="number" name="user_guess" required min="1800" max="2026">
-
 
     <input type="hidden" name="photo_id" value="<?= $roundData['id'] ?>"> 
     <input type="hidden" name="lat" id="lat">
@@ -33,12 +36,12 @@ echo "Time guessr ! round page";
 </form>
 
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /> 
 <style>
     #map { height: 400px; width : 600px;}
 </style>
 // 
-<div id="map"></div>
+
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 

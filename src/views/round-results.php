@@ -68,6 +68,7 @@ if ($distancepoint < 0) {
 $_SESSION['totalScore']  = $_SESSION['totalScore'] + $datepoint + $distancepoint;
 
 ?>
+<link rel="stylesheet" href="css/style.css">
 <h1>round result <?= $roundNumber ?> sur 5</h1>
 
 
@@ -92,3 +93,6 @@ $_SESSION['totalScore']  = $_SESSION['totalScore'] + $datepoint + $distancepoint
 <br>
 <p>vous avez indiqué : latitude : <?= $userLat ?> longitude :  <?= $userLng ?></p>
 <p>la bonne réponse est : latitude : <?= $ResultLat ?> longitude :  <?= $ResultLong ?></p>
+
+<br>
+<a href="index.php?page=game-over">Rénitialiser partie</a>

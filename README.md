@@ -1,3 +1,8 @@
+### TIME GUESSR
+- l'objetctif est de récrée le jeu https://timeguessr.com/.
+
+lancer le script 'setup.sql' pour initialiser la DB (ainsi que mettre de la donnée dedant)
+
 ## BDD 
 Image (on stock le chemin)
 localisation (latitude, longutitude)

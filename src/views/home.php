@@ -6,8 +6,8 @@
  */
 
 ?>
-
-<h1>Time guessr</h1>
+<link rel="stylesheet" href="css/style.css">
+<h1>Time Guesoeur</h1>
 <br>
 <p>Regles : vous aller avoir une image, vous devez trouver quand elle a été prise.</p>
 <p>Il y à 5 rounds au total, ce qui vous donnera un nombre de point sur 25 000</p>
